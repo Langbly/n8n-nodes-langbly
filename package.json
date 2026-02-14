@@ -1,0 +1,52 @@
+{
+  "name": "n8n-nodes-langbly",
+  "version": "1.0.0",
+  "description": "n8n community node for the Langbly Translation API. Translate text between 100+ languages using LLM-powered translations.",
+  "keywords": [
+    "n8n",
+    "n8n-community-node-package",
+    "translation",
+    "langbly",
+    "i18n",
+    "localization",
+    "translate"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Langbly",
+    "email": "hello@langbly.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Langbly/n8n-nodes-langbly.git"
+  },
+  "homepage": "https://langbly.com",
+  "main": "dist/nodes/Langbly/Langbly.node.js",
+  "scripts": {
+    "build": "tsc && npm run copy-icons",
+    "copy-icons": "cp nodes/Langbly/langbly.svg dist/nodes/Langbly/ 2>/dev/null || true",
+    "dev": "tsc --watch",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "nodes": [
+      "dist/nodes/Langbly/Langbly.node.js"
+    ],
+    "credentials": [
+      "dist/credentials/LangblyApi.credentials.js"
+    ]
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "devDependencies": {
+    "n8n-workflow": "^1.0.0",
+    "@types/node": "^20.11.0",
+    "typescript": "^5.4.0"
+  }
+}

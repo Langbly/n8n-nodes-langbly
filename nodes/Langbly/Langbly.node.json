@@ -1,0 +1,17 @@
+{
+	"node": "n8n-nodes-langbly.langbly",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Miscellaneous"],
+	"subcategories": {
+		"Miscellaneous": ["Other"]
+	},
+	"resources": {
+		"primaryDocumentation": [
+			{
+				"url": "https://docs.langbly.com"
+			}
+		]
+	},
+	"alias": ["translate", "translation", "language", "i18n", "localization", "langbly"]
+}

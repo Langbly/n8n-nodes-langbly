@@ -242,7 +242,10 @@ export class Langbly implements INodeType {
           });
           continue;
         }
-        throw new NodeApiError(this.getNode(), error as Record<string, unknown>);
+        if (error instanceof Error) {
+          throw new NodeApiError(this.getNode(), { message: error.message });
+        }
+        throw new NodeApiError(this.getNode(), { message: String(error) });
       }
     }
 

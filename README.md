@@ -1,97 +1,114 @@
 # n8n-nodes-langbly
 
-This is an [n8n](https://n8n.io/) community node for the [Langbly Translation API](https://langbly.com). Translate text between 100+ languages using LLM-powered translations right from your n8n workflows.
+[n8n](https://n8n.io/) community node for the [Langbly](https://langbly.com) translation API. Context-aware machine translation, 81-90% cheaper than Google Translate.
 
-[n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
+## Features
 
-[Installation](#installation) · [Operations](#operations) · [Credentials](#credentials) · [Usage](#usage) · [Resources](#resources)
+- **Translate Text** - Translate any text to 100+ languages with context-aware quality
+- **Detect Language** — Auto-detect the language of input text
+- **HTML Support** — Preserve HTML tags during translation
+- **Formality Control** — Choose formal or informal tone
+- **Batch Processing** — Translate multiple items in a workflow
 
 ## Installation
 
-Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
+### In n8n Desktop / Self-hosted
 
-1. Go to **Settings > Community Nodes** in your n8n instance
-2. Select **Install a community node**
-3. Enter `n8n-nodes-langbly`
-4. Agree to the risks and select **Install**
+1. Go to **Settings → Community Nodes**
+2. Click **Install a community node**
+3. Enter: `n8n-nodes-langbly`
+4. Click **Install**
+
+### Manual Installation
+
+```bash
+cd ~/.n8n/custom
+npm install n8n-nodes-langbly
+```
+
+## Setup
+
+1. Sign up at [langbly.com/signup](https://langbly.com/signup) (free, 500K chars/month)
+2. Create an API key in your dashboard
+3. In n8n, go to **Credentials → New → Langbly API**
+4. Paste your API key
 
 ## Operations
 
-### Translation
+### Translate Text
 
-- **Translate Text**: Translate text to a target language
-
-#### Parameters
+Translate text from one language to another.
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
 | Text | Yes | The text to translate |
-| Target Language | Yes | ISO 639-1 language code (e.g., `nl`, `fr`, `de`, `es`) |
-| Source Language | No | ISO 639-1 code. Leave empty to auto-detect |
-| Format | No | `text` (default) or `html` to preserve markup |
+| Target Language | Yes | ISO 639-1 code (e.g., `nl`, `de`, `fr`) |
+| Source Language | No | Auto-detected if empty |
+| Format | No | `text` (default) or `html` |
+| Formality | No | `formal`, `informal`, or default |
 
-#### Output
+**Output:**
+```json
+{
+  "translatedText": "Hallo wereld",
+  "detectedSourceLanguage": "en",
+  "sourceText": "Hello world",
+  "targetLanguage": "nl"
+}
+```
 
-| Field | Description |
-|-------|-------------|
-| `translatedText` | The translated text |
-| `detectedSourceLanguage` | Detected or provided source language code |
-| `targetLanguage` | The target language code used |
-| `originalText` | The original input text |
+### Detect Language
 
-## Credentials
+Detect the language of input text.
 
-You need a Langbly API key to use this node.
+**Output:**
+```json
+{
+  "detectedLanguage": "fr",
+  "sourceText": "Bonjour le monde",
+  "confidence": "high"
+}
+```
 
-1. Sign up at [langbly.com](https://langbly.com)
-2. Go to your [Dashboard > API Keys](https://langbly.com/dashboard/api-keys)
-3. Create a new API key
-4. In n8n, create new **Langbly API** credentials and paste your key
+## Example Workflows
 
-The free tier includes 500,000 characters per month. No credit card required.
+### Translate Incoming Emails
 
-## Usage
+1. **Email Trigger** → receives email
+2. **Langbly** → translates body to your language
+3. **Slack** → sends translated email to channel
 
-### Basic translation
+### Multilingual Content Pipeline
 
-1. Add the **Langbly** node to your workflow
-2. Set up your API credentials
-3. Enter the text to translate
-4. Set the target language code (e.g., `nl` for Dutch)
-5. Run the workflow
+1. **Webhook** → receives content
+2. **Langbly** (Dutch) → translate to NL
+3. **Langbly** (German) → translate to DE
+4. **Langbly** (French) → translate to FR
+5. **Google Sheets** → save all translations
 
-### Translate incoming data
+### Translate Spreadsheet Rows
 
-Connect the Langbly node after any node that outputs text. Use expressions to reference the text field:
+1. **Google Sheets Trigger** → new row added
+2. **Langbly** → translate specific column
+3. **Google Sheets** → update row with translation
 
-- Set **Text** to `{{ $json.text }}` or `{{ $json.body }}`
-- Set **Target Language** to `{{ $json.language }}` or a fixed value like `fr`
+## Pricing
 
-### HTML content
+| Plan | Price | Characters/mo |
+|------|-------|--------------|
+| Free | $0 | 500K |
+| Starter | $19/mo | 5M |
+| Growth | $69/mo | 25M |
+| Scale | $199/mo | 100M |
 
-When translating HTML content (e.g., from a CMS), set the **Format** option to **HTML**. This preserves all markup, links, and formatting during translation.
-
-## Supported Languages
-
-Langbly supports 100+ languages. Common codes:
-
-| Code | Language | Code | Language |
-|------|----------|------|----------|
-| `en` | English | `nl` | Dutch |
-| `fr` | French | `de` | German |
-| `es` | Spanish | `it` | Italian |
-| `pt` | Portuguese | `ja` | Japanese |
-| `zh` | Chinese | `ko` | Korean |
-| `ar` | Arabic | `ru` | Russian |
-
-Full list: [docs.langbly.com/languages](https://docs.langbly.com/languages)
-
-## Resources
-
-- [Langbly website](https://langbly.com)
-- [API documentation](https://docs.langbly.com)
-- [n8n community nodes docs](https://docs.n8n.io/integrations/community-nodes/)
+[Sign up free →](https://langbly.com/signup)
 
 ## License
 
-[MIT](LICENSE)
+MIT
+
+## Links
+
+- [Langbly Website](https://langbly.com)
+- [API Documentation](https://langbly.com/docs/)
+- [GitHub Repository](https://github.com/Langbly/n8n-nodes-langbly)

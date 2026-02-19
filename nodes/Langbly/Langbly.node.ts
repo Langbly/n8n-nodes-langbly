@@ -14,7 +14,7 @@ export class Langbly implements INodeType {
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"]}}',
-    description: 'Translate text using the Langbly API — LLM-powered, 81–90% cheaper than Google Translate',
+    description: 'Translate text using the Langbly API. Context-aware, 81-90% cheaper than Google Translate.',
     defaults: {
       name: 'Langbly',
     },
@@ -242,7 +242,10 @@ export class Langbly implements INodeType {
           });
           continue;
         }
-        throw new NodeApiError(this.getNode(), error as Record<string, unknown>);
+        if (error instanceof Error) {
+          throw new NodeApiError(this.getNode(), { message: error.message });
+        }
+        throw new NodeApiError(this.getNode(), { message: String(error) });
       }
     }
 

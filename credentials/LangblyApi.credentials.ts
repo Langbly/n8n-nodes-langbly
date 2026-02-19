@@ -33,7 +33,7 @@ export class LangblyApi implements ICredentialType {
   test: ICredentialTestRequest = {
     request: {
       baseURL: 'https://api.langbly.com',
-      url: '/healthz',
+      url: '/health',
       method: 'GET',
     },
   };

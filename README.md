@@ -1,10 +1,10 @@
 # n8n-nodes-langbly
 
-[n8n](https://n8n.io/) community node for the [Langbly](https://langbly.com) translation API. LLM-powered machine translation — 81–90% cheaper than Google Translate.
+[n8n](https://n8n.io/) community node for the [Langbly](https://langbly.com) translation API. Context-aware machine translation, 81-90% cheaper than Google Translate.
 
 ## Features
 
-- **Translate Text** — Translate any text to 100+ languages with LLM-powered quality
+- **Translate Text** - Translate any text to 100+ languages with context-aware quality
 - **Detect Language** — Auto-detect the language of input text
 - **HTML Support** — Preserve HTML tags during translation
 - **Formality Control** — Choose formal or informal tone

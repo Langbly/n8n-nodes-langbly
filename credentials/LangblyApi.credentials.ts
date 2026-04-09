@@ -8,6 +8,7 @@ import type {
 export class LangblyApi implements ICredentialType {
   name = 'langblyApi';
   displayName = 'Langbly API';
+  icon = 'file:langbly.svg' as const;
   documentationUrl = 'https://langbly.com/docs/authentication';
   properties: INodeProperties[] = [
     {

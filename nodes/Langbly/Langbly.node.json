@@ -1,0 +1,19 @@
+{
+  "node": "n8n-nodes-langbly.langbly",
+  "nodeVersion": "1.0",
+  "codexVersion": "1.0",
+  "categories": ["AI", "Miscellaneous"],
+  "resources": {
+    "primaryDocumentation": [
+      {
+        "url": "https://docs.langbly.com/docs/n8n"
+      }
+    ],
+    "credentialDocumentation": [
+      {
+        "url": "https://docs.langbly.com/docs/authentication"
+      }
+    ]
+  },
+  "alias": ["translate", "translation", "language", "i18n", "localization"]
+}

@@ -3,8 +3,12 @@ import type {
   INodeExecutionData,
   INodeType,
   INodeTypeDescription,
+  JsonObject,
 } from 'n8n-workflow';
 import { NodeApiError } from 'n8n-workflow';
+
+// NodeConnectionType enum value — use string literal for compatibility across n8n versions
+const NodeConnectionType_Main = 'main' as const;
 
 export class Langbly implements INodeType {
   description: INodeTypeDescription = {
@@ -18,8 +22,8 @@ export class Langbly implements INodeType {
     defaults: {
       name: 'Langbly',
     },
-    inputs: ['main'],
-    outputs: ['main'],
+    inputs: [NodeConnectionType_Main],
+    outputs: [NodeConnectionType_Main],
     credentials: [
       {
         name: 'langblyApi',
@@ -35,16 +39,16 @@ export class Langbly implements INodeType {
         noDataExpression: true,
         options: [
           {
-            name: 'Translate Text',
-            value: 'translate',
-            description: 'Translate text to another language',
-            action: 'Translate text to another language',
-          },
-          {
             name: 'Detect Language',
             value: 'detect',
             description: 'Detect the language of a text',
             action: 'Detect the language of a text',
+          },
+          {
+            name: 'Translate Text',
+            value: 'translate',
+            description: 'Translate text to another language',
+            action: 'Translate text to another language',
           },
         ],
         default: 'translate',
@@ -242,10 +246,7 @@ export class Langbly implements INodeType {
           });
           continue;
         }
-        if (error instanceof Error) {
-          throw new NodeApiError(this.getNode(), { message: error.message });
-        }
-        throw new NodeApiError(this.getNode(), { message: String(error) });
+        throw new NodeApiError(this.getNode(), error as JsonObject);
       }
     }
 

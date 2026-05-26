@@ -1,0 +1,21 @@
+# Publishes the package to npm with provenance on a version tag.
+# Provenance is generated from GitLab CI via Sigstore OIDC (the SIGSTORE_ID_TOKEN
+# id_token below), which npm accepts the same way it accepts GitHub Actions
+# provenance. NPM_TOKEN is a masked CI/CD variable (granular token, write access
+# to n8n-nodes-langbly, bypass 2FA).
+stages:
+  - publish
+
+publish:
+  stage: publish
+  image: node:20
+  id_tokens:
+    SIGSTORE_ID_TOKEN:
+      aud: sigstore
+  rules:
+    - if: $CI_COMMIT_TAG
+  script:
+    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+    - npm install
+    - npm run build
+    - npm publish --provenance --access public

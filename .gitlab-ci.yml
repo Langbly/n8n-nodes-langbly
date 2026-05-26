@@ -15,7 +15,11 @@ publish:
   rules:
     - if: $CI_COMMIT_TAG
   script:
+    # --ignore-scripts skips native postinstall builds (e.g. isolated-vm pulled
+    # in transitively by n8n-workflow, which needs node >=22 to compile). The
+    # build only needs tsc + the n8n-workflow type defs, so the native binary is
+    # irrelevant here.
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-    - npm install
+    - npm install --ignore-scripts
     - npm run build
-    - npm publish --provenance --access public
+    - npm publish --provenance --access public --ignore-scripts

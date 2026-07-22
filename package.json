@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-langbly",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "n8n community node for the Langbly translation API. Context-aware translation, Google Translate v2 compatible, 5-10x cheaper.",
   "keywords": [
     "n8n-community-node-package",
@@ -19,7 +19,7 @@
   "homepage": "https://langbly.com",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/jasperdew/n8n-nodes-langbly.git"
+    "url": "git+https://github.com/Langbly/n8n-nodes-langbly.git"
   },
   "main": "dist/nodes/Langbly/Langbly.node.js",
   "scripts": {

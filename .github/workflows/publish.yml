@@ -16,8 +16,13 @@ jobs:
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
+      # --ignore-scripts skips native postinstall builds (isolated-vm, pulled
+      # in transitively by n8n-workflow, needs node >=22 to compile natively
+      # and fails on the runner's node 20 toolchain). The build only needs
+      # tsc + the n8n-workflow type defs, so the native binary is irrelevant
+      # here. Matches the working GitLab CI config (.gitlab-ci.yml).
+      - run: npm ci --ignore-scripts
       - run: npm run build
-      - run: npm publish --provenance --access public
+      - run: npm publish --provenance --access public --ignore-scripts
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

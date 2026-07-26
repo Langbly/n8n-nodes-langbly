@@ -11,11 +11,11 @@ import { NodeApiError } from 'n8n-workflow';
 const NodeConnectionType_Main = 'main' as const;
 
 export class Langbly implements INodeType {
-  usableAsTool = true;
   description: INodeTypeDescription = {
     displayName: 'Langbly',
     name: 'langbly',
-    icon: { light: 'file:langbly.svg', dark: 'file:langbly.svg' },
+    icon: { light: 'file:langbly.svg', dark: 'file:langbly.dark.svg' },
+    usableAsTool: true,
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"]}}',

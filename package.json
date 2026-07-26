@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-langbly",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "n8n community node for the Langbly translation API. Context-aware translation, Google Translate v2 compatible, 5-10x cheaper.",
   "keywords": [
     "n8n-community-node-package",
@@ -23,7 +23,7 @@
   },
   "main": "dist/nodes/Langbly/Langbly.node.js",
   "scripts": {
-    "build": "tsc && cp nodes/Langbly/langbly.svg dist/nodes/Langbly/ && cp nodes/Langbly/Langbly.node.json dist/nodes/Langbly/ && cp credentials/langbly.svg dist/credentials/",
+    "build": "tsc && cp nodes/Langbly/langbly.svg nodes/Langbly/langbly.dark.svg dist/nodes/Langbly/ && cp nodes/Langbly/Langbly.node.json dist/nodes/Langbly/ && cp credentials/langbly.svg dist/credentials/",
     "dev": "tsc --watch",
     "lint": "tsc --noEmit",
     "prepublishOnly": "npm run build"

@@ -19,7 +19,7 @@ export class Langbly implements INodeType {
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"]}}',
-    description: 'Translate text using the Langbly API. Context-aware, 81-90% cheaper than Google Translate.',
+    description: 'Translate text using the Langbly API. Context-aware, with a 75% lower published usage rate than Google Cloud Translation Basic.',
     defaults: {
       name: 'Langbly',
     },

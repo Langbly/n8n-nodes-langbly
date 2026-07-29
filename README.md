@@ -1,6 +1,6 @@
 # n8n-nodes-langbly
 
-[n8n](https://n8n.io/) community node for the [Langbly](https://langbly.com) translation API. Context-aware machine translation, 81-90% cheaper than Google Translate.
+[n8n](https://n8n.io/) community node for the [Langbly](https://langbly.com/?utm_source=n8n.io&utm_medium=plugin&utm_campaign=n8n-community-node&utm_content=readme-intro) translation API. Context-aware machine translation at a 75% lower published usage rate than Google Cloud Translation Basic.
 
 ## Features
 
@@ -28,7 +28,7 @@ npm install n8n-nodes-langbly
 
 ## Setup
 
-1. Sign up at [langbly.com/signup](https://langbly.com/signup) (free, 500K chars/month)
+1. [Create a Langbly account](https://langbly.com/signup?utm_source=n8n.io&utm_medium=plugin&utm_campaign=n8n-community-node&utm_content=readme-api-key) and add payment details to activate API access. The first 500K input characters each month are included.
 2. Create an API key in your dashboard
 3. In n8n, go to **Credentials → New → Langbly API**
 4. Paste your API key
@@ -94,14 +94,13 @@ Detect the language of input text.
 
 ## Pricing
 
-| Plan | Price | Characters/mo |
-|------|-------|--------------|
-| Free | $0 | 500K |
-| Starter | $19/mo | 5M |
-| Growth | $69/mo | 25M |
-| Scale | $199/mo | 100M |
+| Item | Price |
+|------|------:|
+| Base fee | $0 |
+| Included each month | First 500K input characters |
+| Additional usage | $5 per 1M input characters |
 
-[Sign up free →](https://langbly.com/signup)
+[Create an API key →](https://langbly.com/signup?utm_source=n8n.io&utm_medium=plugin&utm_campaign=n8n-community-node&utm_content=readme-pricing-cta)
 
 ## License
 
@@ -109,6 +108,7 @@ MIT
 
 ## Links
 
-- [Langbly Website](https://langbly.com)
-- [API Documentation](https://langbly.com/docs/)
+- [Langbly Website](https://langbly.com/?utm_source=n8n.io&utm_medium=plugin&utm_campaign=n8n-community-node&utm_content=readme-links)
+- [Pricing](https://langbly.com/pricing/?utm_source=n8n.io&utm_medium=plugin&utm_campaign=n8n-community-node&utm_content=readme-pricing)
+- [API Documentation](https://langbly.com/docs/?utm_source=n8n.io&utm_medium=plugin&utm_campaign=n8n-community-node&utm_content=readme-docs)
 - [GitHub Repository](https://github.com/Langbly/n8n-nodes-langbly)

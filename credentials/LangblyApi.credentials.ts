@@ -9,7 +9,7 @@ export class LangblyApi implements ICredentialType {
   name = 'langblyApi';
   displayName = 'Langbly API';
   icon = 'file:langbly.svg' as const;
-  documentationUrl = 'https://langbly.com/docs/authentication';
+  documentationUrl = 'https://langbly.com/docs/authentication?utm_source=n8n.io&utm_medium=plugin&utm_campaign=n8n-community-node&utm_content=credential-documentation';
   properties: INodeProperties[] = [
     {
       displayName: 'API Key',
@@ -18,7 +18,7 @@ export class LangblyApi implements ICredentialType {
       typeOptions: { password: true },
       default: '',
       required: true,
-      description: 'Your Langbly API key. Get one free at langbly.com/signup (500K chars/month).',
+      description: 'Create an API key at langbly.com/signup. Payment details are required; the first 500K input characters each month are included.',
     },
   ];
 

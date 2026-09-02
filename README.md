@@ -112,3 +112,4 @@ MIT
 - [Pricing](https://langbly.com/pricing/?utm_source=n8n.io&utm_medium=plugin&utm_campaign=n8n-community-node&utm_content=readme-pricing)
 - [API Documentation](https://langbly.com/docs/?utm_source=n8n.io&utm_medium=plugin&utm_campaign=n8n-community-node&utm_content=readme-docs)
 - [GitHub Repository](https://github.com/Langbly/n8n-nodes-langbly)
+- [All Langbly repos](https://github.com/Langbly) - SDKs (Python, JS/TS, PHP), Postman collection, and other integrations
